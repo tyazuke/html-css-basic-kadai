@@ -1,0 +1,86 @@
+h1,p,body{
+  margin:0;
+}
+p,a{
+  font-size: 20px;
+}
+header{
+  margin-bottom:20px;
+  background-color:rgb(244,79,79);
+  margin-right:auto;
+  margin-left:auto;
+  text-align:center;
+}
+h1{
+  color:rgb(255,255,255);
+}
+main{
+  margin:10px 10px 10px 10px;
+}
+#parent{
+  /* displayプロパティを使い、id名parentの要素をFlexコンテナ */
+  display:flex;
+  /* justify-contentプロパティでFlexboxコンテナの子要素（Flexアイテム）「一番左と一番右のアイテムも含め、均等な間隔で配置する」値を設定 */
+  justify-content:space-around;
+}
+.contents{
+  /* 線（太さ3px、実線、色rgb(238, 204, 204)）で要素を囲います。 */
+  border:solid 3px rgb(238, 204, 204);
+  /* 幅は親要素の25%にします。プロパティはwidthではなく、flex-basisを使ってください。 */
+  flex-basis:25%;
+  /* 要素内の余白は上下10px、左右15px */
+  padding:10px 15px;
+  /* 要素外の余白は上下20px、左右0 */
+  margin:20px 0;
+  text-align:center;
+}
+h2{
+  font-size:25px;
+  /* 下線（太さ3px、点線、色rgb(236, 122, 122)） */
+  border-bottom:dotted 3px rgb(236, 122, 122);
+}
+h2::before{
+  content:"●";
+  color:rgb(239, 111, 139) ;
+}
+/* class名contents内の二番目のp要素内のテキストの中で一番目の文字にのみ、以下のスタイル設定をします。
+nth-of-type(n)とfirst-letterを組み合わせると表現できます。 */
+p:nth-of-type(2)::first-letter{
+  font-weight:bold;
+  color:rgb(97, 206, 249);
+}
+.contents img{
+  margin:10px 0;
+  width:70%;
+}
+footer{
+  background-color:rgb(244, 79, 79);
+  text-align:center;
+}
+a{
+  color:rgb(255, 255, 255);}
+  /* マウスカーソルが乗ると文字色がrgb(245, 178, 168) */
+  a:hover{
+    color:rgb(245, 178, 168);
+  }
+  /* 訪問済みリンクの文字色がrgb(193, 234, 251) */
+a:visited{
+  color:rgb(193, 234, 251);
+}
+
+/* 画面幅768px以下のスタイル設定 */
+/* h2のフォントサイズは30pxとします。
+pのフォントサイズは25pxとします。
+Flexboxコンテナであるid名parent内の要素が縦に並ぶ */
+@media screen and (max-width:768px){
+  h2{
+    font-size:30px;
+  }
+  p{
+    font-size:25px;
+  }
+  #parent{
+    display:flex;
+    flex-direction:column;
+  }
+}
